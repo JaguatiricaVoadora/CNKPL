@@ -1,0 +1,18 @@
+# Ignora o arquivo env.js na raiz
+env.js
+
+# Se tiver dentro de alguma pasta também
+**/env.js
+
+# Node.js padrão
+node_modules/
+
+# Mac e Windows
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+
+# Configs de editor
+.vscode/
