@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>な ๋ Forum</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <!-- Configurações (env) -->
+  <script src="env.js"></script>
+</head>
+<body>
+
+  <!-- TELA DE LOGIN -->
+  <div id="login-container">
+    <h1>な ๋</h1>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Senha">
+    <button onclick="login()">Entrar</button>
+    <button onclick="register()">Registrar</button>
+    <div id="login-error"></div>
+  </div>
+
+  <!-- PÓS-LOGIN: INTERFACE PRINCIPAL -->
+  <div id="main-container" style="display: none;">
+    <header>
+      <span class="logo">な ๋</span>
+      <button onclick="logout()">Sair</button>
+    </header>
+
+    <div class="app-wrapper">
+      <!-- Painel lateral -->
+      <nav class="sidebar">
+        <button onclick="showTab('forum')">🗒 Fórum</button>
+        <button onclick="showTab('chat')">💬 Chat</button>
+      </nav>
+
+      <!-- Conteúdo principal -->
+      <main class="main-content">
+        <!-- Aba Fórum -->
+        <div id="forum-tab" class="tab active">
+          <section id="post-section">
+            <textarea id="post-text" placeholder="Comente algo..."></textarea>
+            <button onclick="sendPost()">Postar</button>
+          </section>
+          <section id="posts"></section>
+        </div>
+
+        <!-- Aba Chat -->
+        <div id="chat-tab" class="tab">
+          <section id="chat-section">
+            <h2>Chat</h2>
+            <div id="chat-messages"></div>
+            <input type="text" id="chat-input" placeholder="Mensagem...">
+            <button onclick="sendChat()">Enviar</button>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Script principal DEPOIS de tudo -->
+  <script src="app.js"></script>
+</body>
+</html>
